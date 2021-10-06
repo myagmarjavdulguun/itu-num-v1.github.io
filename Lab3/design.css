@@ -1,0 +1,129 @@
+body {
+	background-color: #e7e0c6;
+	font-family: arial;
+	color: white;
+	font-size: 20px;
+}
+
+.container {
+	width: 960px;
+	height: 1400px;
+}
+
+.header {
+	width: 100%;
+	height: 20%;
+	background-color: #d1bd9c;
+	color: white;
+}
+
+.column1 {
+	width: 40%;
+	height: 80%;
+	float: left;
+	background-color: #6c7f79;
+	line-height: 30px;
+}
+
+.column2 {
+	width: 60%;
+	height: 80%;
+	float: right;
+	background-color: #904c3f;
+}
+
+li {
+	text-align: left;
+	line-height: 60px;
+}
+
+hr {
+	width: 80%;
+	height: 2px;
+	background-color: #cfcebc;
+}
+
+.column1 h1 {
+	text-align: left;
+	margin-left: 35px;
+}
+
+.column2 h1 {
+	text-align: left;
+	margin-left: 50px;
+}
+
+#ner {
+	text-align: right;
+	margin-top: 100px;
+	margin-right: 50px;
+	font-style: italic;
+	font-size: 60px;
+}
+
+.header p:last-of-type {
+	font-size: 30px;
+	float: right;
+	text-align: right;
+	margin-bottom: 80px;
+	margin-right: 100px;
+	font-style: italic;
+}
+
+img {
+	float: left;
+	margin-top: 30px;
+	margin-left: 30px;
+	border-radius: 50%;
+	border: 1px;
+}
+
+.column2 p {
+	text-align: left;
+	margin-left: 20px;
+}
+
+.column2 h2:nth-of-type(even) {
+	margin-right: 15px;
+	float: right;
+}
+
+.column2 h2:nth-of-type(odd) {
+	margin-left: 15px;
+	float: left;
+}
+
+section:nth-of-type(3) div {
+	width: 80%;
+	height: 15px;
+	background-color: #d1bd9c;
+	border-radius: 10px;
+}
+
+#a {
+	width: 90%;
+	height: 15px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+#b {
+	width: 70%;
+	height: 15px;
+	background-color: white;
+	border-radius: 10px;
+} 
+
+#c {
+	width: 40%;
+	height: 15px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+#d {
+	width: 65%;
+	height: 15px;
+	background-color: white;
+	border-radius: 10px;
+}
