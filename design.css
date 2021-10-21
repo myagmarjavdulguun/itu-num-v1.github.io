@@ -4,7 +4,7 @@ button {
   background-color: pink;
 }
 
-button.hover {
+button:hover {
   background-color: white;
   color: gray;
   width: 220px;
