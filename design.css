@@ -1,12 +1,17 @@
 button {
-  width: 200px;
-  height: 70px;
-  background-color: pink;
+	width: 200px;
+	height: 80px;
+	font-size: 30px;
+	font-family: cursive;
+	background-color: #78160b;
+	border: 5px solid #e28743;
+	color: #e28743;
 }
 
 button:hover {
-  background-color: white;
-  color: gray;
-  width: 220px;
-  height: 80px;
+	width: 250px;
+	height: 80px;
+	background-color: white;
+	color: #78160b;
+	font-size: 35px;
 }
