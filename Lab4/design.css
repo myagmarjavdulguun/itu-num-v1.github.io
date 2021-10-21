@@ -231,7 +231,7 @@ input:last-of-type {
 	}
 
 	.sidebar {
-		width: 85%;
+		width: 100%;
 		align-items: center;
 	}
 }
