@@ -1,6 +1,6 @@
 body {
 	background-color: #ffdc98;
-	font-family: arial;
+	font-family: cursive;
 }
 
 .container {
@@ -14,6 +14,10 @@ body {
 	float: left;
 	background-color: white;
 	position: relative;
+}
+
+li {
+	list-style-type: none;
 }
 
 .column2 {
