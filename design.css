@@ -3,3 +3,10 @@ button {
   height: 70px;
   background-color: pink;
 }
+
+button.hover {
+  background-color: white;
+  color: gray;
+  width: 220px;
+  height: 80px;
+}
