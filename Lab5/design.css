@@ -1,0 +1,37 @@
+.green {
+    width:100px;height:100px;position:absolute;background-color:green;top:0px;left:0px;
+}
+.oroi {
+    width:100px; 
+    height:100px;         
+    position:absolute; 
+    background-color:blue; 
+    bottom:0px; 
+    right:0px;
+}
+body {
+    background-color: gray;
+}
+.container {
+    width: 60%;
+    height: 100%;
+    background-color: burlywood;
+}
+button {
+    width: 450px;
+    height: 70px;
+    border-radius: 25px;
+    background-color: darkblue;
+    color: white;
+    border: 5px solid white;
+}
+button:hover {
+    background-color: white;
+    border: 5px solid darkblue;
+    color: darkblue;
+}
+.container div {
+    line-height: 20px;
+    padding-left: 30px;
+    padding-top: 30px;
+}

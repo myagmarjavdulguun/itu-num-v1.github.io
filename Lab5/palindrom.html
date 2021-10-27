@@ -1,0 +1,79 @@
+<html>  
+<head> <title> JavaScript Palindrome </title>
+<link rel="stylesheet" type="text/css" href="design.css"> 
+</head>  
+<body>
+<center>
+<div class="container" align="left">
+    <div class="bodlogo1">
+        <button onclick="palindrom()">Палиндром эсэхийг шалгацгаая.</button><br>
+        <p id="pal"></p>
+    </div>
+    <div class="bodlogo2">
+        <button onclick="niilber()">Цифрүүдийн нийлбэрийг олцгооё</button><br>
+        <p id="demo"></p>
+    </div>
+    <div class="bodlogo3">
+        <button onclick="hugatsaa()">Чоно 25км\цаг хурдтай, харин туулай 18км\цаг хурдтай бол чоно туулайг ямар хугацаанд барих вэ?</button><br>
+        <p id="tsag"></p>
+    </div>
+    <div class="bodlogo4">
+        <button onclick="haalga()">3н орцтой 9н давхар орон сууцны хаана амьдардаг вэ?</button><br>
+        <p id="orts"></p>
+    </div>
+    <p id="sarmagchin"></p>
+    <p id="mich"></p>
+</div>  
+</center>  
+<script>        
+function palindrom() {          
+    var string = prompt('Нэрээ оруулна уу.');  
+    var value = haha(string);
+    function haha() {  
+        var len = string.length;  
+        for (let i = 0; i < len / 2; i++) {  
+            if (string[i] !== string[len - 1 - i]) {  
+                document.getElementById("pal").innerHTML = "Палиндром биш.";
+                {return};  
+            }  
+        }  
+        document.getElementById("pal").innerHTML = "Палиндром мөн.";  
+    }  
+} 
+function niilber() {
+    var too = prompt('Натурал тоо оруулна уу. Зөвхөн натурал!!!')
+    var s=0;
+    var len=too.length;
+    for (let i=1; i<=len; i++) {
+        s=s+(too%10);
+        too=Math.floor(too/10);
+    }
+    document.getElementById('demo').innerHTML = s;
+}
+function hugatsaa() {
+    var hurd=7;
+    var zai=prompt('Чоно туулайг ямар зайнаас эхэлж хөөсөн бэ? метр ээр оруулна уу.')
+    zai=zai/1000;
+    var time=zai/hurd;
+    document.getElementById('tsag').innerHTML = Math.floor(zai/hurd) + " цаг " + Math.floor(zai/hurd%1*60) + " минут " + Math.floor(zai/hurd%1*60%1*60) + " секундын дараа чоно гэдэс гарна. ";
+}
+function haalga() {
+    var haalga = prompt('Haalganii dugaariig oruulna uu.');
+    if(haalga<109 && haalga>0 && haalga%1==0) {
+        if (haalga<37) {
+            document.getElementById("orts").innerHTML = 1 + "-р орцны " + Math.ceil(haalga/4) + " давхар";
+        }
+        else if (haalga<73) {
+            document.getElementById("orts").innerHTML = 2 + "-р орцны " + Math.ceil((haalga-36)/4) + " давхар";
+        }
+        else {
+            document.getElementById("orts").innerHTML = 3 + "-р орцны " + Math.ceil((haalga-72)/4) + " давхар";
+        }
+    }
+    else {
+        document.getElementById('orts').innerHTML = "Энэ орон сууцанд " + haalga + " дугаартай хаалга байхгүй байна.";
+    }
+}
+</script>  
+</body>  
+</html>   
