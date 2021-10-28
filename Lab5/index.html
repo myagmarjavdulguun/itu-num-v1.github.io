@@ -49,14 +49,14 @@ function niilber() {
         s=s+(too%10);
         too=Math.floor(too/10);
     }
-    document.getElementById('demo').innerHTML = kino + " тооны цифрүүдийн нийлбэр нь" + s;
+    document.getElementById('demo').innerHTML = kino + " тооны цифрүүдийн нийлбэр нь " + s;
 }
 function hugatsaa() {
     var hurd=7;
     var zai=prompt('Чоно туулайг ямар зайнаас эхэлж хөөсөн бэ? метр ээр оруулна уу.')
     zai=zai/1000;
     var time=zai/hurd;
-    document.getElementById('tsag').innerHTML = zai + " метр зайнаас чоно " + Math.floor(zai/hurd) + " цаг " + Math.floor(zai/hurd%1*60) + " минут " + Math.floor(zai/hurd%1*60%1*60) + " секундын дараа туулайг барина. ";
+    document.getElementById('tsag').innerHTML = zai + " километр зайнаас чоно " + Math.floor(zai/hurd) + " цаг " + Math.floor(zai/hurd%1*60) + " минут " + Math.floor(zai/hurd%1*60%1*60) + " секундын дараа туулайг барина. ";
 }
 function haalga() {
     var haalga = prompt('Haalganii dugaariig oruulna uu.');
