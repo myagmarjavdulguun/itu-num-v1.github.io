@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS D2, Event, Function, Array</title>
+	<style>
+		body {
+			background-color: #efefef;
+		}
+		h1 {
+			text-align: center;
+		}
+		.container {
+			background-color: white;
+			width: 270px;
+			margin: 0px auto;
+			padding: 50px;
+
+		}
+		.container p {
+			background-color: #000;
+			color: white;
+			padding: 5px 10px;
+		}
+		.container a {
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			font-size: 1.5em;
+			border: 1px solid black;
+			display: inline-block;
+			color: black;
+			text-decoration: none;
+			text-align: center;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+<p id="urdun">0</p>
+<a href="#" onclick="uildel('/');">/</a>
+<a href="#" onclick="uildel('*');">*</a>
+<a href="#" onclick="uildel('-');">-</a>
+<a href="#" onclick="arilga()">C</a>
+<br>
+<a href="#" onclick="too(7);">7</a>
+<a href="#" onclick="too(8);">8</a>
+<a href="#" onclick="too(9);">9</a>
+<a href="#" onclick="uildel('+');">+</a>
+<br>
+<a href="#" onclick="too(4);">4</a>
+<a href="#" onclick="too(5);">5</a>
+<a href="#" onclick="too(6);">6</a>
+<a href="#" onclick="result();">=</a>
+<br>
+<a href="#" onclick="too(1);">1</a>
+<a href="#" onclick="too(2);">2</a>
+<a href="#" onclick="too(3);">3</a>
+<a href="#" onclick="too(0);">0</a>
+<br>
+
+
+
+</div>
+<script>
+	var dorjoo = '';
+	var nanzaa = ''; 
+	var lhamaa = '';
+	function too(negtooirne){
+		nanzaa = nanzaa + negtooirne;
+		document.getElementById('urdun').innerHTML = nanzaa;
+	}
+	function uildel(temdeg){
+		dorjoo = nanzaa;
+		lhamaa = temdeg;
+		document.getElementById('urdun').innerHTML = temdeg;
+		nanzaa = '';
+	}
+	function result(){
+		if(lhamaa == '*'){
+			document.getElementById('urdun').innerHTML = parseFloat(dorjoo)*parseFloat(nanzaa);
+		} else if(lhamaa == '+'){
+			document.getElementById('urdun').innerHTML = parseFloat(dorjoo)+parseFloat(nanzaa);
+		} else if(lhamaa == '-'){
+			document.getElementById('urdun').innerHTML = parseFloat(dorjoo)-parseFloat(nanzaa);
+		} else if(lhamaa == '/'){
+			document.getElementById('urdun').innerHTML = parseFloat(dorjoo)/parseFloat(nanzaa);
+		} 
+	}
+	function arilga() {
+		dorjoo = '';
+		nanzaa = '';
+		lhamaa = '';
+		document.getElementById('urdun').innerHTML = '0';
+	}
+</script>
+</body>
+</html>
