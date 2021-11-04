@@ -62,14 +62,47 @@ function haalga() {
     var haalga = prompt('Haalganii dugaariig oruulna uu.');
     if(haalga<109 && haalga>0 && haalga%1==0) {
         if (haalga<37) {
-            document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 1 + "-р орцны " + Math.ceil(haalga/4) + " давхарт байна.";
+            if (haalga%4==1) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 1 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 1р хаалга.";
+                }
+            else if (haalga%4==2) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 1 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 2р хаалга.";
+                }
+            else if (haalga%4==3) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 1 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 3р хаалга.";
+                }
+            else {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 1 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 4р хаалга.";
+                }
         }
         else if (haalga<73) {
-            document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 2 + "-р орцны " + Math.ceil((haalga-36)/4) + " давхарт байна.";
-        }
+            if (haalga%4==1) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 2 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 1р хаалга.";
+                }
+            else if (haalga%4==2) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 2 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 2р хаалга.";
+                }
+            else if (haalga%4==3) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 2 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 3р хаалга.";
+                }
+            else {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 2 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 4р хаалга.";
+                }
+            }
         else {
-            document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 3 + "-р орцны " + Math.ceil((haalga-72)/4) + " давхар байна.";
-        }
+            if (haalga%4==1) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 3 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 1р хаалга.";
+                }
+            else if (haalga%4==2) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 3 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 2р хаалга.";
+                }
+            else if (haalga%4==3) {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 3 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 3р хаалга.";
+                }
+            else {
+                document.getElementById("orts").innerHTML = haalga + " дугаартай хаалга " + 3 + "-р орцны " + Math.ceil(haalga/4) + " давхрын 4р хаалга.";
+                }
+            }
     }
     else {
         document.getElementById('orts').innerHTML = "Энэ орон сууцанд " + haalga + " дугаартай хаалга байхгүй байна.";
