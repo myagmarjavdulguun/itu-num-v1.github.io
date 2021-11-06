@@ -24,6 +24,7 @@ button {
     background-color: darkblue;
     color: white;
     border: 5px solid white;
+    padding: 0px auto;
 }
 button:hover {
     background-color: white;
