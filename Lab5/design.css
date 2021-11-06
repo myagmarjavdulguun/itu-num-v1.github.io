@@ -1,14 +1,3 @@
-.green {
-    width:100px;height:100px;position:absolute;background-color:green;top:0px;left:0px;
-}
-.oroi {
-    width:100px; 
-    height:100px;         
-    position:absolute; 
-    background-color:blue; 
-    bottom:0px; 
-    right:0px;
-}
 body {
     background-color: gray;
 }
