@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<body>
+	<div class="container">
+		<div class="menu" align="center">
+			<button onclick="restart()" id="restart">Дахин эхлэх</button>
+			<p id="hint"></p>
+			<button onclick="hint()" id="sejuur">Сэжүүр</button>
+		</div>
+		<div class="main">
+			<img src="hm0.png" id="zurag">
+			<p id="ami"></p>
+			<p id="sedev"></p>
+			<p id="ug"></p>
+		</div>
+		<div class="alphabet" align="center">
+			<div class="buttons">
+			<button id="а" onclick="useg('а')">А</button>&nbsp;&nbsp;
+			<button onclick="useg('б')">Б</button>&nbsp;&nbsp;
+			<button onclick="useg('в')">В</button>&nbsp;&nbsp;
+			<button onclick="useg('г')">Г</button>&nbsp;&nbsp;
+			<button onclick="useg('д')">Д</button>&nbsp;&nbsp;
+			<button onclick="useg('е')">Е</button>&nbsp;&nbsp;
+			<button onclick="useg('ё')">Ё</button>&nbsp;&nbsp;
+			<button onclick="useg('ж')">Ж</button>&nbsp;&nbsp;
+			<button onclick="useg('з')">З</button>&nbsp;&nbsp;
+			<button onclick="useg('и')">И</button>
+			<br><br>
+			<button onclick="useg('й')">Й</button>&nbsp;&nbsp;
+			<button onclick="useg('к')">К</button>&nbsp;&nbsp;
+			<button onclick="useg('л')">Л</button>&nbsp;&nbsp;
+			<button onclick="useg('м')">М</button>&nbsp;&nbsp;
+			<button onclick="useg('н')">Н</button>&nbsp;&nbsp;
+			<button onclick="useg('о')">О</button>&nbsp;&nbsp;
+			<button onclick="useg('ө')">Ө</button>&nbsp;&nbsp;
+			<button onclick="useg('п')">П</button>&nbsp;&nbsp;
+			<button onclick="useg('р')">Р</button>&nbsp;&nbsp;
+			<button onclick="useg('с')">С</button>
+			<br><br>
+			<button onclick="useg('т')">Т</button>&nbsp;&nbsp;
+			<button onclick="useg('у')">У</button>&nbsp;&nbsp;
+			<button onclick="useg('ү')">Ү</button>&nbsp;&nbsp;
+			<button onclick="useg('ф')">Ф</button>&nbsp;&nbsp;
+			<button onclick="useg('х')">Х</button>&nbsp;&nbsp;
+			<button onclick="useg('ц')">Ц</button>&nbsp;&nbsp;
+			<button onclick="useg('ч')">Ч</button>&nbsp;&nbsp;
+			<button onclick="useg('ш')">Ш</button>&nbsp;&nbsp;
+			<button onclick="useg('щ')">Щ</button>&nbsp;&nbsp;
+			<button onclick="useg('ъ')">Ъ</button>
+			<br><br>
+			<button onclick="useg('ы')">Ы</button>&nbsp;&nbsp;
+			<button onclick="useg('ь')">Ь</button>&nbsp;&nbsp;
+			<button onclick="useg('э')">Э</button>&nbsp;&nbsp;
+			<button onclick="useg('ю')">Ю</button>&nbsp;&nbsp;
+			<button onclick="useg('я')">Я</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		const words = [
+			"баавгай",
+			"хулгана", 
+			"тогоруу", 
+			"сармагчин", 
+			"сарлаг", 
+			"туулай", 
+			"шидтэн",
+			"халим",
+			"үчимбэр",
+			"булга",
+			"лондон",
+			"бээжин",
+			"вашингтон",
+			"сөүл",
+			"москва",
+			"токёо",
+			"софи",
+			"улаанбаатар",
+			"астана",
+			"оттава"
+		];
+		const hints = [
+			"оросын бэлгэ тэмдэг", 
+			"12 жилиийн нэг", 
+			"галзуу тавын нэг", 
+			"хүний гар шиг хөлтэй", 
+			"үхэртэй төстэй", 
+			"ну погоди", 
+			"ид шидтэй хүн",
+			"усны амьтан",
+			"хурдан амьтан",
+			"үнэтэй арьстай амьтан",
+			"рован аткинсоны нутаг",
+			"цагаан хэрэм",
+			"жорж ...",
+			"англи хэлний сүнс гэдэг үгтэй төстэй",
+			"улаан талбай",
+			"анимэ",
+			"болгарын нийслэл",
+			"сонин улс",
+			"казакуудын үндэс",
+			"америкийн хөрш"
+		]
+		var  i = Math.floor(Math.random()*20);
+		var k=words[i];
+		var urt=k.length;
+		var onoo=0;
+		const tsuvaa=k.slice();
+		const nuuts=[];
+
+		for (var a=0;a<urt;a++) {
+			nuuts[a]="_ ";
+		}
+
+		if (i>=10) {
+			document.getElementById('sedev').innerHTML="Сэдэв: нийслэл";
+		} else {
+			document.getElementById('sedev').innerHTML="Сэдэв: амьтан";
+		}
+
+		var ami = 5;
+		document.getElementById('ug').innerHTML=nuuts;
+		document.getElementById('ami').innerHTML= "Танд "+ami+"н амь байна.";
+		function useg(p) {
+			
+			if (ami==0) {
+				return;
+			}
+			var q=0;
+				if (onoo==urt) {
+						document.getElementById('ug').innerHTML="Баяр хүргэе!!! Та '"+k+"' үгийг амжилттай таалаа.";
+				} else {
+					for(var a=0;a<urt;a++) {
+						if (tsuvaa[a]==p) {
+							onoo=onoo+1;
+							nuuts[a]=p;
+							document.getElementById('ug').innerHTML=nuuts;
+							}
+						else {
+							q++;
+						}
+					}
+					if (ami>=1) {
+						if (urt==q) {
+							ami=ami-1;
+								document.getElementById('ami').innerHTML="Танд "+ami+"н амь байна.";
+								if (ami==4) {
+									document.getElementById('zurag').src="hm1.png";
+								} else if (ami==3) {
+									document.getElementById('zurag').src="hm2.png";
+								} else if (ami==2) {
+									document.getElementById('zurag').src="hm3.png";
+								} else if (ami==1) {
+									document.getElementById('zurag').src="hm4.png";
+								} else if (ami==0) {
+									document.getElementById('zurag').src="hm5.png";
+									document.getElementById('ug').innerHTML="Та хожигдлоо!!! таны үг '"+k+"' байсан байна.";
+									document.getElementById('ami').innerHTML="Таний амь дууслаа";
+									return;
+								}
+								return;
+						}
+					}
+					if (onoo==urt) {
+						document.getElementById('ug').innerHTML="Баяр хүргэе!!! Та '"+k+"' үгийг амжилттай таалаа.";
+					}
+				}
+		}
+
+		function hint() {
+			document.getElementById('hint').innerHTML="сэжүүр: " +hints[i];
+		}
+
+		function restart() {
+			location.reload();
+		}
+	</script>
+</body>
+</html>
