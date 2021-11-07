@@ -41,15 +41,20 @@ function palindrom() {
     }  
 } 
 function niilber() {
-    var too = prompt('Натурал тоо оруулна уу. Зөвхөн натурал!!!')
-    var s=0;
-    var kino=too;
-    var len=too.length;
-    for (let i=1; i<=len; i++) {
-        s=s+(too%10);
-        too=Math.floor(too/10);
+    var too = prompt("тоогоо оруулна уу.");
+    var oron = too.length;
+    const digit = [];
+
+    for (var i=0;i<oron;i++) {
+        digit[i]=parseInt(too.slice(i,i+1));
     }
-    document.getElementById('demo').innerHTML = kino + " тооны цифрүүдийн нийлбэр нь " + s;
+    
+    var sum=0;
+    for (let i = 0; i < oron; i++) {
+        sum = sum + digit[i];
+    }
+
+    document.getElementById('demo').innerHTML= too + " тооны цифрүүдийн нийлбэр нь " + sum;
 }
 function hugatsaa() {
     var hurd=7;
