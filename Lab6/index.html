@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<body>
+	<div class="container">
+		<div class="menu" align="center">
+			<button onclick="restart()" id="restart">Дахин эхлэх</button>
+			<p id="hint"></p>
+			<button onclick="hint()" id="sejuur">Сэжүүр</button>
+		</div>
+		<div class="main">
+			<img src="hm0.png" id="zurag">
+			<img src="ami5.png" id="ami">
+			<p id="sedev"></p>
+			<p id="ug"></p>
+		</div>
+		<div class="alphabet" align="center">
+			<div class="buttons">
+			<button id="а" onclick="useg('а')">А</button>&nbsp;&nbsp;
+			<button id="б" onclick="useg('б')">Б</button>&nbsp;&nbsp;
+			<button id="в" onclick="useg('в')">В</button>&nbsp;&nbsp;
+			<button id="г" onclick="useg('г')">Г</button>&nbsp;&nbsp;
+			<button id="д" onclick="useg('д')">Д</button>&nbsp;&nbsp;
+			<button id="е" onclick="useg('е')">Е</button>&nbsp;&nbsp;
+			<button id="ё" onclick="useg('ё')">Ё</button>&nbsp;&nbsp;
+			<button id="ж" onclick="useg('ж')">Ж</button>&nbsp;&nbsp;
+			<button id="з" onclick="useg('з')">З</button>&nbsp;&nbsp;
+			<button id="и" onclick="useg('и')">И</button>
+			<br><br>
+			<button id="й" onclick="useg('й')">Й</button>&nbsp;&nbsp;
+			<button id="к" onclick="useg('к')">К</button>&nbsp;&nbsp;
+			<button id="л" onclick="useg('л')">Л</button>&nbsp;&nbsp;
+			<button id="м" onclick="useg('м')">М</button>&nbsp;&nbsp;
+			<button id="н" onclick="useg('н')">Н</button>&nbsp;&nbsp;
+			<button id="о" onclick="useg('о')">О</button>&nbsp;&nbsp;
+			<button id="ө" onclick="useg('ө')">Ө</button>&nbsp;&nbsp;
+			<button id="п" onclick="useg('п')">П</button>&nbsp;&nbsp;
+			<button id="р" onclick="useg('р')">Р</button>&nbsp;&nbsp;
+			<button id="с" onclick="useg('с')">С</button>
+			<br><br>
+			<button id="т" onclick="useg('т')">Т</button>&nbsp;&nbsp;
+			<button id="у" onclick="useg('у')">У</button>&nbsp;&nbsp;
+			<button id="ү" onclick="useg('ү')">Ү</button>&nbsp;&nbsp;
+			<button id="ф" onclick="useg('ф')">Ф</button>&nbsp;&nbsp;
+			<button id="х" onclick="useg('х')">Х</button>&nbsp;&nbsp;
+			<button id="ц" onclick="useg('ц')">Ц</button>&nbsp;&nbsp;
+			<button id="ч" onclick="useg('ч')">Ч</button>&nbsp;&nbsp;
+			<button id="ш" onclick="useg('ш')">Ш</button>&nbsp;&nbsp;
+			<button id="щ" onclick="useg('щ')">Щ</button>&nbsp;&nbsp;
+			<button id="ъ" onclick="useg('ъ')">Ъ</button>
+			<br><br>
+			<button id="ы" onclick="useg('ы')">Ы</button>&nbsp;&nbsp;
+			<button id="ь" onclick="useg('ь')">Ь</button>&nbsp;&nbsp;
+			<button id="э" onclick="useg('э')">Э</button>&nbsp;&nbsp;
+			<button id="ю" onclick="useg('ю')">Ю</button>&nbsp;&nbsp;
+			<button id="я" onclick="useg('я')">Я</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		const words = [
+			"баавгай",
+			"хулгана", 
+			"тогоруу", 
+			"сармагчин", 
+			"сарлаг", 
+			"туулай", 
+			"шидтэн",
+			"халим",
+			"үчимбэр",
+			"булга",
+			"лондон",
+			"бээжин",
+			"вашингтон",
+			"сөүл",
+			"москва",
+			"токёо",
+			"софи",
+			"улаанбаатар",
+			"астана",
+			"оттава"
+		];
+		const hints = [
+			"оросын бэлгэ тэмдэг", 
+			"12 жилиийн нэг", 
+			"галзуу тавын нэг", 
+			"хүний гар шиг хөлтэй", 
+			"үхэртэй төстэй", 
+			"ну погоди", 
+			"ид шидтэй хүн",
+			"усны амьтан",
+			"хурдан амьтан",
+			"үнэтэй арьстай амьтан",
+			"рован аткинсоны нутаг",
+			"цагаан хэрэм",
+			"жорж ...",
+			"англи хэлний сүнс гэдэг үгтэй төстэй",
+			"улаан талбай",
+			"анимэ",
+			"болгарын нийслэл",
+			"сонин улс",
+			"казакуудын үндэс",
+			"америкийн хөрш"
+		]
+		var  i = Math.floor(Math.random()*20);
+		var k=words[i];
+		var urt=k.length;
+		var onoo=0;
+		const tsuvaa=k.slice();
+		const nuuts=[];
+
+		for (var a=0;a<urt;a++) {
+			nuuts[a]="_ ";
+		}
+
+		if (i>=10) {
+			document.getElementById('sedev').innerHTML="Сэдэв: нийслэл";
+		} else {
+			document.getElementById('sedev').innerHTML="Сэдэв: амьтан";
+		}
+
+		var ami = 5;
+		document.getElementById('ug').innerHTML=nuuts;
+		document.getElementById('ami').innerHTML= "Танд "+ami+"н амь байна.";
+		function useg(p) {
+
+			if (ami==0) {
+				return;
+			}
+
+			var q=0;
+
+			if (p=="а") {
+				document.getElementById("а").style.backgroundColor = "#3fc1c9";
+				document.getElementById("а").style.color = "#3fc1c9";}
+			else if (p=="б") {
+				document.getElementById("б").style.backgroundColor = "#3fc1c9";
+				document.getElementById("б").style.color = "#3fc1c9";}
+			else if (p=="в") {
+				document.getElementById("в").style.backgroundColor = "#3fc1c9";
+				document.getElementById("в").style.color = "#3fc1c9";}
+			else if (p=="г") {
+				document.getElementById("г").style.backgroundColor = "#3fc1c9";
+				document.getElementById("г").style.color = "#3fc1c9";}
+			else if (p=="д") {
+				document.getElementById("д").style.backgroundColor = "#3fc1c9";
+				document.getElementById("д").style.color = "#3fc1c9";}
+			else if (p=="е") {
+				document.getElementById("е").style.backgroundColor = "#3fc1c9";
+				document.getElementById("е").style.color = "#3fc1c9";}
+			else if (p=="ё") {
+				document.getElementById("ё").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ё").style.color = "#3fc1c9";}
+			else if (p=="ж") {
+				document.getElementById("ж").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ж").style.color = "#3fc1c9";}
+			else if (p=="з") {
+				document.getElementById("з").style.backgroundColor = "#3fc1c9";
+				document.getElementById("з").style.color = "#3fc1c9";}
+			else if (p=="и") {
+				document.getElementById("и").style.backgroundColor = "#3fc1c9";
+				document.getElementById("и").style.color = "#3fc1c9";}
+			else if (p=="й") {
+				document.getElementById("й").style.backgroundColor = "#3fc1c9";
+				document.getElementById("й").style.color = "#3fc1c9";}
+			else if (p=="к") {
+				document.getElementById("к").style.backgroundColor = "#3fc1c9";
+				document.getElementById("к").style.color = "#3fc1c9";}
+			else if (p=="л") {
+				document.getElementById("л").style.backgroundColor = "#3fc1c9";
+				document.getElementById("л").style.color = "#3fc1c9";}
+			else if (p=="м") {
+				document.getElementById("м").style.backgroundColor = "#3fc1c9";
+				document.getElementById("м").style.color = "#3fc1c9";}
+			else if (p=="н") {
+				document.getElementById("н").style.backgroundColor = "#3fc1c9";
+				document.getElementById("н").style.color = "#3fc1c9";}
+			else if (p=="о") {
+				document.getElementById("о").style.backgroundColor = "#3fc1c9";
+				document.getElementById("о").style.color = "#3fc1c9";}
+			else if (p=="ө") {
+				document.getElementById("ө").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ө").style.color = "#3fc1c9";}
+			else if (p=="п") {
+				document.getElementById("п").style.backgroundColor = "#3fc1c9";
+				document.getElementById("п").style.color = "#3fc1c9";}
+			else if (p=="р") {
+				document.getElementById("р").style.backgroundColor = "#3fc1c9";
+				document.getElementById("р").style.color = "#3fc1c9";}
+			else if (p=="с") {
+				document.getElementById("с").style.backgroundColor = "#3fc1c9";
+				document.getElementById("с").style.color = "#3fc1c9";}
+			else if (p=="т") {
+				document.getElementById("т").style.backgroundColor = "#3fc1c9";
+				document.getElementById("т").style.color = "#3fc1c9";}
+			else if (p=="у") {
+				document.getElementById("у").style.backgroundColor = "#3fc1c9";
+				document.getElementById("у").style.color = "#3fc1c9";}
+			else if (p=="ү") {
+				document.getElementById("ү").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ү").style.color = "#3fc1c9";}
+			else if (p=="ф") {
+				document.getElementById("ф").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ф").style.color = "#3fc1c9";}
+			else if (p=="х") {
+				document.getElementById("х").style.backgroundColor = "#3fc1c9";
+				document.getElementById("х").style.color = "#3fc1c9";}
+			else if (p=="ц") {
+				document.getElementById("ц").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ц").style.color = "#3fc1c9";}
+			else if (p=="ч") {
+				document.getElementById("ч").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ч").style.color = "#3fc1c9";}
+			else if (p=="ш") {
+				document.getElementById("ш").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ш").style.color = "#3fc1c9";}
+			else if (p=="щ") {
+				document.getElementById("щ").style.backgroundColor = "#3fc1c9";
+				document.getElementById("щ").style.color = "#3fc1c9";}
+			else if (p=="ъ") {
+				document.getElementById("ъ").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ъ").style.color = "#3fc1c9";}
+			else if (p=="ы") {
+				document.getElementById("ы").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ы").style.color = "#3fc1c9";}
+			else if (p=="ь") {
+				document.getElementById("ь").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ь").style.color = "#3fc1c9";}
+			else if (p=="э") {
+				document.getElementById("э").style.backgroundColor = "#3fc1c9";
+				document.getElementById("э").style.color = "#3fc1c9";}
+			else if (p=="ю") {
+				document.getElementById("ю").style.backgroundColor = "#3fc1c9";
+				document.getElementById("ю").style.color = "#3fc1c9";}
+			else if (p=="я") {
+				document.getElementById("я").style.backgroundColor = "#3fc1c9";
+				document.getElementById("я").style.color = "#3fc1c9";}
+
+				if (onoo==urt) {
+						document.getElementById('ug').innerHTML="Баяр хүргэе!!! Та '"+k+"' үгийг амжилттай таалаа.";
+				} else {
+					for(var a=0;a<urt;a++) {
+						if (tsuvaa[a]==p) {
+							onoo=onoo+1;
+							nuuts[a]=p;
+							document.getElementById('ug').innerHTML=nuuts;
+							}
+						else {
+							q++;
+						}
+					}
+					if (ami>=1) {
+						if (urt==q) {
+							ami=ami-1;
+								if (ami==4) {
+									document.getElementById('ami').src="ami4.png";
+									document.getElementById('zurag').src="hm1.png";
+								} else if (ami==3) {
+									document.getElementById('ami').src="ami3.png";
+									document.getElementById('zurag').src="hm2.png";
+								} else if (ami==2) {
+									document.getElementById('ami').src="ami2.png";
+									document.getElementById('zurag').src="hm3.png";
+								} else if (ami==1) {
+									document.getElementById('ami').src="ami1.png";
+									document.getElementById('zurag').src="hm4.png";
+								} else if (ami==0) {
+									document.getElementById('zurag').src="hm5.png";
+									document.getElementById('ug').innerHTML="Та хожигдлоо!!! таны үг '"+k+"' байсан байна.";
+									document.getElementById('ami').src="ami0.png";
+									return;
+								}
+								return;
+						}
+					}
+					if (onoo==urt) {
+						document.getElementById('ug').innerHTML="Баяр хүргэе!!! Та '"+k+"' үгийг амжилттай таалаа.";
+					}
+				}
+		}
+
+		function hint() {
+			document.getElementById('hint').innerHTML="сэжүүр: " +hints[i];
+		}
+
+		function restart() {
+			location.reload();
+		}
+	</script>
+</body>
+</html>
