@@ -1,99 +1,50 @@
-1 SELECT fName FROM staff
-UNION
-SELECT fName FROM CLIENT
-UNION
-SELECT fName FROM privateowner
+1 SELECT h.city, h.hotelName, r.bed, r.price
+FROM hotel h, room r
+ORDER BY r.price;
 
-2 SELECT fName, lName, telNo
-FROM CLIENT
-WHERE telNo LIKE "%22%"
-UNION
-SELECT fName, lName, telNo
-FROM privateowner
-WHERE telNo LIKE "%22%"
+2 SELECT r.*, h.*
+FROM room r, hotel h
+WHERE r.price BETWEEN 100 AND 300;
 
-3 SELECT staff.*, privateowner.*
-FROM staff, privateowner
-WHERE staffNo = (SELECT staffNo 
-                  FROM propertyforrent
-                  WHERE rooms=3 AND type1="flat" AND staffNo!="")
-AND ownerNo = (SELECT ownerNo 
-                  FROM propertyforrent
-                  WHERE rooms=3 AND type1="flat" AND staffNo!="")
+3 SELECT *
+FROM hotel
+WHERE hotelNo=(SELECT hotelNo
+               FROM room
+               GROUP BY hotelNo
+               ORDER BY COUNT(roomNo)
+               LIMIT 1);
 
-4 CREATE TABLE newpropertyforrent
-SELECT *
-FROM propertyforrent
+4 SELECT hotel.hotelNo, room.COUNT(roomNo), room.MIN(price), room.MAX(price), room.AVG(price)
+FROM hotel, room
+WHERE hotel.hotelNo=room.hotelNo
+GROUP BY room.hotelNo;
 
-5 SELECT staff.staffNo, staff.fName, staff.position1, branch.city, branch.branchNo, branch.postcode
-FROM staff, branch
-WHERE staff.branchNo=branch.branchNo AND staffNo IN (SELECT staffNo
-                                                     FROM registration
-                                                     WHERE clientNo = (SELECT clientNo
-                                                                       FROM CLIENT
-                                                                       WHERE fName="John"))
-                                                                       
-6 SELECT *
-FROM CLIENT
-WHERE clientNo IN (SELECT clientNo
-                   FROM viewing
-                   WHERE propertyNo IN (SELECT propertyNo
-                                     FROM propertyforrent
-                                     WHERE ownerNo IN(SELECT ownerNo
-                                                      FROM privateowner
-                                                      WHERE fName="Tony")))
-                                                      
-7 SELECT branch.branchNo, branch.city, COUNT(propertyNo)
-FROM branch, propertyforrent
-WHERE branch.city=propertyforrent.city
-GROUP BY propertyforrent.city
-HAVING COUNT(propertyNo)>2
+5 SELECT hotel.*, room.*
+FROM hotel, room, booking, guest
+WHERE hotel.hotelNo=booking.hotelNo AND booking.guestNo=guest.guestNo AND guest.guestName="Mark";
 
-8 CREATE TABLE StaffPropCount
-SELECT staff.staffNo, staff.fName, staff.lName, COUNT(propertyforrent.propertyNo) AS propCount
-FROM staff, propertyforrent
-WHERE staff.staffNo=propertyforrent.staffNo
-GROUP BY propertyforrent.staffNo
+6 SELECT r.roomNo, r.bed, r.price, g.guestName, g.phonenumber, h.city, h.hotelName
+FROM room r, hotel h, booking b, guest g
+WHERE b.hotelNo=h.hotelNo AND b.roomNo=r.roomNo AND b.guestNo=g.guestNo AND NOW() BETWEEN b.dateFrom AND b.dateTo;
 
-9 CREATE TABLE BranchInf
-SELECT branch.branchNo, branch.city, COUNT(staff.staffNo) AS staffcount
-FROM branch, staff
-WHERE branch.branchNo=staff.branchNo
-GROUP BY staff.branchNo
+7 SELECT roomNo, DATEDIFF(dateFrom, dateTo)
+FROM booking;
 
-10 SELECT staff.staffNo, COUNT(propertyforrent.propertyNo) AS propertycount, staff.branchNo
-FROM propertyforrent, staff
-WHERE staff.staffNo=propertyforrent.staffNo AND staff.branchNo="B005"
-GROUP BY propertyforrent.staffNo
+8 SELECT *
+FROM room
+WHERE hotelNo IN (SELECT hotelNo
+                  FROM booking
+                  GROUP BY hotelNo
+                  ORDER BY COUNT(guestNo)
+                  LIMIT 1);
 
-11 SELECT privateowner.fName, privateowner.address, privateowner.telNo, propertyforrent.city, propertyforrent.type1, staff.fName, staff.position1
-FROM privateowner, propertyforrent, staff
-WHERE propertyforrent.staffNo=staff.staffNo AND privateowner.ownerNo=propertyforrent.ownerNo AND propertyforrent.propertyNo= 
-(SELECT propertyNo
- FROM viewing
- WHERE comment1="no dimimg room")
- 
-12 SELECT branch.city, branch.branchNo, staff.position1, COUNT(staff.staffNo)
-FROM branch, staff
-WHERE branch.branchNo=staff.branchNo
-GROUP BY branch.city, branch.branchNo, staff.position1
+9 SELECT hotel.*
+FROM hotel, room
+WHERE room.price<300 AND hotel.hotelNo=room.hotelNo AND room.roomNo NOT IN (SELECT roomNo
+                                                                            FROM booking);
 
-13 SELECT privateowner.address, privateowner.fName, propertyforrent.propertyNo, propertyforrent.rooms,
-FROM privateowner, propertyforrent
-WHERE privateowner.ownerNo=propertyforrent.ownerNo AND propertyforrent.staffNo=""
-
-14 SELECT staff.fName, staff.position, branch.city, client.fName, client.maxRent
-FROM staff, branch, client, registration
-WHERE registration.clientNo=client.clientNo AND registration.brannchNo=branch.branchNo AND registration.staffNo=staff.staffNo;
-
-15 SELECT *
-FROM propertyforrent
-WHERE staffNo in (SELECT staffNo
-                  FROM registration
-                  WHERE clientNo in (SELECT clientNo
-                                     FROM client
-                                     WHERE fName="Mary"));
-
-16 SELECT c.fName, c.telNo, pro.rooms, pro.rent, pri.fName, pri.telNo
-FROM client c, propertyforrent pro, privateowner pri, viewing v
-WHERE v.comment="too remote" AND v.clientNo=c.clientNo AND v.propertyNo=pro.propertyNo AND pro.ownerNo=pri.ownerNo;
+10 SELECT b.guestNo, b.guestName, b.hotelNo, h.city, r.roomNo, r.price
+FROM booking b, hotel h, room r
+WHERE b.hotelNo=h.hotelNo AND b.roomNo=r.roomNo
+ORDER BY DATE(b.dateFrom, b.dateTo)
+LIMIT 1;
