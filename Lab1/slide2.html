@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to Lab1</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<body>
+<div class="container">
+	<div class="buttons">
+		<a href="index.html">Тухай</a>
+		<a href="slide2.html">Сонирхол</a>
+		<a href="slide3.html">Дуртай дуу</a>
+		<a href="slide4.html">Баримт</a>
+		<a href="slide5.html">Холбоо барих</a>
+	</div>
+	<div class="content" align="center">
+		<button id="b12" onclick="zuragsolih(-1)"><</button>
+		<button id="b22" onclick="zuragsolih(1)">></button>
+		<img id="img2" src="alhah.png">
+		<p id="demo">Ууланд гарах</p>
+	</div>
+	<script>
+		var k=6666;
+		function zuragsolih(a) {
+			k=k+a;
+			if (k%6==0) {
+				document.getElementById("img2").src="alhah.png";
+				document.getElementById("demo").innerHTML="Ууланд гарах";
+			} else if (k%6==1) {
+				document.getElementById("img2").src="bodoh.png";
+				document.getElementById("demo").innerHTML="Сонирхолтой бодлого бодох";
+			} else if (k%6==2) {
+				document.getElementById("img2").src="duu.png";
+				document.getElementById("demo").innerHTML="Дуу сонсох";
+			} else if (k%6==3) {
+				document.getElementById("img2").src="kino.png";
+				document.getElementById("demo").innerHTML="Кино үзэх";
+			} else if (k%6==4) {
+				document.getElementById("img2").src="unshih.png";
+				document.getElementById("demo").innerHTML="Ном унших";
+			} else if (k%6==5) {
+				document.getElementById("img2").src="zurah.png";
+				document.getElementById("demo").innerHTML="Зурах";
+			}
+		}
+	</script>
+</div>
+</body>
+</html>
