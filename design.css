@@ -14,5 +14,5 @@ button:hover {
 	background-color: white;
 	color: #78160b;
 	font-size: 35px;
-	transition: all 2s;
+	transition: all 0.2s;
 }
