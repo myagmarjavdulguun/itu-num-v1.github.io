@@ -1,0 +1,38 @@
+body {
+	font-family: Tahoma;
+	font-size: 40px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: center;
+}
+p {
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	border-top: 1px solid #687291;
+	margin: 4px;
+}
+p:nth-of-type(2n+1) {
+	background-color: #dfe1e7;
+}
+p:nth-of-type(2n) {
+	background-color: #eeeff2;
+}
+p:last-of-type {
+	background-color: #687291;
+	border: 4px solid black;
+}
+button {
+	position: absolute;
+	left: 50px;
+	bottom: 50px;
+	padding: 20px 40px;
+	border: none;
+	font-size: 20px;
+	transition: all 0.2s;
+}
+button:hover {
+	background-color: gold;
+	color: purple;
+}

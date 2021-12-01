@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CS142 Project #1</title>
+	<link rel="stylesheet" type="text/css" id="design" href="styleA.css">
+</head>
+<body>
+<button id="button" onclick="myFunction(1)">Click here to change style source (design A)</button>
+<p>A</p>
+<p>B</p>
+<p>C</p>
+<p>D</p>
+<p>E</p>
+<p class="last">F</p>
+<script>
+var s=0;
+	function myFunction(a) {
+		s=s + a;
+		if (s%2==1) {
+		document.getElementById("design").href= "styleB.css";
+		document.getElementById("button").innerHTML= "Click here to change style source (design B)";}
+		else {
+		document.getElementById("design").href= "styleA.css";
+		document.getElementById("button").innerHTML= "Click here to change style source (design A)";
+		}
+	}
+</script>
+</body>
+</html>
