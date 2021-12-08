@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+}
+body {
+    min-width: 1000px;
+}
+.useg {
+    width: 100px;
+    height: 150px;
+    margin: 10px 5px;
+    background: #eeeff2;
+    float: left;
+}
+.A {
+    border-left: 10px dotted #D0D0FF;
+}
+.B {
+    border-left: 10px dotted #D0D0FF;
+}
+.zai {
+    width: 10px;
+}
+.F {
+    border-left: 10px dotted #D0D0FF;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.A:hover,.B:hover,.F:hover{
+    background-color:yellow ;
+    cursor: pointer;
+}
+button {
+    padding: 10px;
+    background: green;
+    color: pink;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

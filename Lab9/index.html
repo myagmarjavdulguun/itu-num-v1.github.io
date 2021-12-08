@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styleA.css" id="link">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="zai"></div>
+        <div class="A useg">A</div>
+        <div class="zai"></div>
+        <div class="B useg">B</div>
+        <div class="zai"></div>
+        <div class="A useg">C</div>
+        <div class="zai"></div>
+        <div class="B useg">D</div>
+        <div class="zai"></div>
+        <div class="A useg">E</div>
+        <div class="zai"></div>
+        <div class="F useg">F</div> 
+    </div>
+ 
+<button onclick="hha(1)">hha</button>
+
+<script>
+    var s=0;
+    function hha(a) {
+        s=s+a;
+        if (s%2==1) {
+            document.getElementById("link").href= "styleB.css";
+        } else {
+            document.getElementById("link").href= "styleA.css";
+        }
+    }
+</script>
+    
+</body>
+</html>
