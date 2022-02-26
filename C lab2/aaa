@@ -1,0 +1,56 @@
+#include <stdio.h>
+main() {
+    int a;
+    printf("4n orontoi too oruulna uu:");
+    scanf("%d",&a);
+    ((a/1000==a%10)&&(a%1000/100==a%100/10)) && printf("tanii oruulsan too aztai too mon.");
+    !((a/1000==a%10)&&(a%1000/100==a%100/10)) && printf("tanii oruulsan too aztai too bish.");
+}
+
+
+
+#include <stdio.h>
+main() {
+    int a,b,c,d;
+    scanf("%d %d %d %d", &a,&b,&c,&d);
+    printf("\n%d%d%d%d\n", a,b,c,d);
+    printf("%d%d%d%d\n", a,b,d,c);
+    printf("%d%d%d%d\n", a,c,b,d);
+    printf("%d%d%d%d\n", a,c,d,b);
+    printf("%d%d%d%d\n", a,d,b,c);
+    printf("%d%d%d%d\n", a,d,c,b);
+    printf("%d%d%d%d\n", b,c,d,a);
+    printf("%d%d%d%d\n", b,c,a,d);
+    printf("%d%d%d%d\n", b,d,a,c);
+    printf("%d%d%d%d\n", b,d,c,a);
+    printf("%d%d%d%d\n", b,a,c,d);
+    printf("%d%d%d%d\n", b,a,d,c);
+    printf("%d%d%d%d\n", c,d,a,b);
+    printf("%d%d%d%d\n", c,d,b,a);
+    printf("%d%d%d%d\n", c,a,b,d);
+    printf("%d%d%d%d\n", c,a,d,b);
+    printf("%d%d%d%d\n", c,b,d,a);
+    printf("%d%d%d%d\n", c,b,a,d);
+    printf("%d%d%d%d\n", d,a,b,c);
+    printf("%d%d%d%d\n", d,a,c,b);
+    printf("%d%d%d%d\n", d,b,a,c);
+    printf("%d%d%d%d\n", d,b,c,a);
+    printf("%d%d%d%d\n", d,c,a,b);
+    printf("%d%d%d%d\n", d,c,b,a);
+}
+
+
+
+
+
+#include <stdio.h>
+main() {
+    float a,b;
+    scanf("%f",&a);
+    a=a/35*100;
+    a<=100 && a>=90 && printf("%.1f A",a);
+    a<90 && a>=80 && printf("%.1f B",a);
+    a<80 && a>=70 && printf("%.1f C",a);
+    a<70 && a>=60 && printf("%.1f D",a);
+    a<60 && printf("%.1f F",a);
+}
