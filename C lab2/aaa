@@ -54,3 +54,72 @@ main() {
     a<70 && a>=60 && printf("%.1f D",a);
     a<60 && printf("%.1f F",a);
 }
+
+
+
+
+
+lab1 daalgavar
+#include <stdio.h>
+#include <math.h>
+main() {
+    int a,h;
+    printf("Gurvaljnii suuriin urtiig oruul:");
+    scanf("%d", &a);
+    printf("Gurvaljnii ondriig oruul:");
+    scanf("%d", &h);
+    printf("\n\n Ug gurvaljnii talbai: %.2f \n\n", a*h/2.0);
+    return 0;
+}
+
+
+
+
+
+#include <stdio.h>
+#include <math.h>
+main() {
+    int a,b,c;
+    printf("a iin utgiig oruul:");
+    scanf("%d", &a);
+    printf("b iin utgiig oruul:");
+    scanf("%d", &b);
+    printf("c iin utgiig oruul:");
+    scanf("%d", &c);
+    printf("x1=%.4f  x2=%.4f", (-b+sqrt(pow(b,2)-4*a*c))/2/(double)a, (-b-sqrt(pow(b,2)-4*a*c))/2/(double)a);
+    return 0;
+}
+
+
+
+
+#include <stdio.h>
+#include <math.h>
+main() {
+    int a,b,alpha;
+    printf("1r taliin urtiig oruul:");
+    scanf("%d",&a);
+    printf("2r taliin urtiig oruul:");
+    scanf("%d",&b);
+    printf("2 taliin hoorondoh ontsgiig oruul:");
+    scanf("%d",&alpha);
+    printf("3dah taliin urt ni: %f", sqrt(pow(b,2)+pow(a,2)-2*a*b*cos(alpha*M_PI/180)));
+}
+
+
+
+
+#include <stdio.h>
+#include <math.h>
+main() {
+    int a,b,c,d;
+    printf("a toog oruul:");
+    scanf("%d",&a);
+    printf("b toog oruul:");
+    scanf("%d",&b);
+    printf("c toog oruul:");
+    scanf("%d",&c);
+    printf("d toog oruul:");
+    scanf("%d",&d);
+    printf("\n\nhariu: %f", (sqrt(pow(pow(a,3)+(double)b/c,2)+d)/(pow(d,2)-a*(double)b/c)*d));
+}
