@@ -1,0 +1,261 @@
+#include <stdio.h>
+main() {
+    int a;
+    scanf("%d",&a);
+    if(a%2==0) {
+        printf("%d ni tegsh too.\n", a);
+        if(a%10==0 && a%4==0) {
+            printf("10 bolon 4t huvaagdana.\n");
+            if (a%2==0 && a%8==0) {
+                printf("2 bolon 8d huvaagdana.\n");
+            }
+        } else if (a%2==0 && a%8==0) {
+            printf("2 bolon 8d huvaagdana.\n");
+        }
+    } else {
+        printf("%d ni sondgoi too.\n", a);
+        if(a%3==0 && a%7==0) {
+            printf("3 bolon 7t huvaagdana.\n");
+            if (a%5==0 && a%9==0) {
+                printf("5 bolon 9d huvaagdana.\n");
+            }
+        } else if (a%5==0 && a%9==0) {
+            printf("5 bolon 9d huvaagdana.\n");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+main() {
+    int on, sar, odor;
+    scanf("%d %d %d",&on,&sar,&odor);
+    if(on>2022) {
+        printf("%d onii %d sariin %d nii odor ni ireedui ym.\n",on,sar,odor);
+    } else if (on<2022) {
+        printf("%d onii %d sariin %d nii odor ni ongorson ym.\n",on,sar,odor);
+    } else {
+        if(sar>3) {
+            printf("%d onii %d sariin %d nii odor ni ireedui ym.\n",on,sar,odor);
+        } else if (sar<3) {
+            printf("%d onii %d sariin %d nii odor ni ongorson ym.\n",on,sar,odor);
+        } else {
+            if(odor>7) {
+                printf("%d onii %d sariin %d nii odor ni ireedui ym.\n",on,sar,odor);
+            } else if(odor<7) {
+                printf("%d onii %d sariin %d nii odor ni ongorson ym.\n",on,sar,odor);
+            } else {
+                printf("%d onii %d sariin %d nii odor ni onoodor ym.\n",on,sar,odor);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+#include <stdio.h>
+main() {
+    int a,t0=0,t1=0,t2=0,t3=0,t4=0,t5=0,t6=0,t7=0,t8=0,t9=0,max=0;
+    scanf("%d",&a);
+    if(a/100000==0)
+        t0++;
+    if(a/100000==1)
+        t1++;
+    if(a/100000==2)
+        t2++;
+    if(a/100000==3)
+        t3++;
+    if(a/100000==4)
+        t4++;
+    if(a/100000==5)
+        t5++;
+    if(a/100000==6)
+        t6++;
+    if(a/100000==7)
+        t7++;
+    if(a/100000==8)
+        t8++;
+    if(a/100000==9)
+        t9++;
+
+
+    if(a%100000/10000==0)
+        t0++;
+    if(a%100000/10000==1)
+        t1++;
+    if(a%100000/10000==2)
+        t2++;
+    if(a%100000/10000==3)
+        t3++;
+    if(a%100000/10000==4)
+        t4++;
+    if(a%100000/10000==5)
+        t5++;
+    if(a%100000/10000==6)
+        t6++;
+    if(a%100000/10000==7)
+        t7++;
+    if(a%100000/10000==8)
+        t8++;
+    if(a%100000/10000==9)
+        t9++;
+
+
+
+
+    if(a%10000/1000==0)
+        t0++;
+    if(a%10000/1000==1)
+        t1++;
+    if(a%10000/1000==2)
+        t2++;
+    if(a%10000/1000==3)
+        t3++;
+    if(a%10000/1000==4)
+        t4++;
+    if(a%10000/1000==5)
+        t5++;
+    if(a%10000/1000==6)
+        t6++;
+    if(a%10000/1000==7)
+        t7++;
+    if(a%10000/1000==8)
+        t8++;
+    if(a%10000/1000==9)
+        t9++;
+
+
+
+    if(a%1000/100==0)
+        t0++;
+    if(a%1000/100==1)
+        t1++;
+    if(a%1000/100==2)
+        t2++;
+    if(a%1000/100==3)
+        t3++;
+    if(a%1000/100==4)
+        t4++;
+    if(a%1000/100==5)
+        t5++;
+    if(a%1000/100==6)
+        t6++;
+    if(a%1000/100==7)
+        t7++;
+    if(a%1000/100==8)
+        t8++;
+    if(a%1000/100==9)
+        t9++;
+
+
+
+    if(a%100/10==0)
+        t0++;
+    if(a%100/10==1)
+        t1++;
+    if(a%100/10==2)
+        t2++;
+    if(a%100/10==3)
+        t3++;
+    if(a%100/10==4)
+        t4++;
+    if(a%100/10==5)
+        t5++;
+    if(a%100/10==6)
+        t6++;
+    if(a%100/10==7)
+        t7++;
+    if(a%100/10==8)
+        t8++;
+    if(a%1000/100==9)
+        t9++;
+
+
+
+    if(a%10==0)
+        t0++;
+    if(a%10==1)
+        t1++;
+    if(a%10==2)
+        t2++;
+    if(a%10==3)
+        t3++;
+    if(a%10==4)
+        t4++;
+    if(a%10==5)
+        t5++;
+    if(a%10==6)
+        t6++;
+    if(a%10==7)
+        t7++;
+    if(a%10==8)
+        t8++;
+    if(a%10==9)
+        t9++;
+
+
+
+    if(max<t0)
+        max=t0;
+    if(max<t1)
+        max=t1;
+    if(max<t2)
+        max=t2;
+    if(max<t3)
+        max=t3;
+    if(max<t4)
+        max=t4;
+    if(max<t5)
+        max=t5;
+    if(max<t6)
+        max=t6;
+    if(max<t7)
+        max=t7;
+    if(max<t8)
+        max=t8;
+    if(max<t9)
+        max=t9;
+
+
+
+    if(max==t0)
+        printf("0 ");
+    if(max==t1)
+        printf("1 ");
+    if(max==t2)
+        printf("2 ");
+    if(max==t3)
+        printf("3 ");
+    if(max==t4)
+        printf("4 ");
+    if(max==t5)
+        printf("5 ");
+    if(max==t6)
+        printf("6 ");
+    if(max==t7)
+        printf("7 ");
+    if(max==t8)
+        printf("8 ");
+    if(max==t9)
+        printf("9 ");
+    printf("tsifr hamgiin olon davtagdsan baina.");
+}
