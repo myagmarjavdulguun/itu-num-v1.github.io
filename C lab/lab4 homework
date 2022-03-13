@@ -1,0 +1,64 @@
+#include <stdio.h>
+main() {
+    int n,i,j,k;
+    scanf("%d",&n);
+    for(i=1; i<=n; i++) {
+        if(n%i==0) {
+            printf("%d\n",i);
+        }
+    }
+}
+
+
+
+
+
+
+
+#include <stdio.h>
+main() {
+    int a,b;
+    scanf("%d %d",&a,&b);
+    while(a!=b) {
+        if(a>b)
+            a=a-b;
+        else
+            b=b-a;
+    }
+    printf("%d yronhii huvaagch",a);
+}
+
+
+
+
+
+
+
+
+#include <stdio.h>
+main() {
+    int i,j;
+    float u,h;
+    for(i=1; i<=7; i++) {
+        float niittsag=24;
+        printf("%d deh odor: \n",i);
+        printf("    Heden tsag untah ve: ");
+        scanf("%f",&u);
+        niittsag = niittsag - u;
+        printf("    Heden hicheeltei ve: ");
+        scanf("%f",&h);
+        for(j=1; j<=h; j++) {
+            printf("        %d dugaar hicheel heden tsag oroh ve: ",j);
+            scanf("%f",&u);
+            niittsag = niittsag - u;
+        }
+        printf("    Heden ajiltai ve: ");
+        scanf("%f",&h);
+        for(j=1; j<=h; j++) {
+            printf("        %d dugaar ajil heden tsag shaardah ve: ",j);
+            scanf("%f",&u);
+            niittsag = niittsag - u;
+        }
+        printf("ene odor tand %.2f tsag cholootei baina.\n\n",niittsag);
+    }
+}
