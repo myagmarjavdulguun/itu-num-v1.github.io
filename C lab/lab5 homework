@@ -59,3 +59,32 @@ main() {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <math.h>
+main() {
+    int n,i,k,s;
+    scanf("%d",&n);
+    for(i=pow(10,n-1); i<pow(10,n); i++) {
+        s=1;
+        k=i;
+        while(k!=0) {
+            s=s*(k%10);
+            k=k/10;
+        }
+        if(s!=0 && i%s==0) {
+            printf("%d\n",i);
+        }
+    }
+}
