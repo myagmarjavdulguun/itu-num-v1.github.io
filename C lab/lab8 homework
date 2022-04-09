@@ -27,3 +27,73 @@ main() {
 
 
 
+#include <stdio.h>
+#include <string.h>
+main() {
+    char text[500];
+    int i, k, egshig[200], max;
+    printf("Oguulberee oruul:");
+    fgets(text, 100, stdin);
+    text[strlen(text)-1] = '\0';
+    k=0;
+    for(i=0; i<strlen(text); i++) {
+        egshig[k] = 0;
+        while(text[i]!=32) {
+            if(text[i]==65 || text[i]==69 || text[i]==73 || text[i]==79 || text[i]==85 || text[i]==89 || text[i]==97 || text[i]==101 || text[i]==105 || text[i]==111 || text[i]==117 || text[i]==121) {
+                egshig[k]++;
+            }
+            i++;
+        }
+        k++;
+    }
+    k--;
+    max = egshig[0];
+    for(i=0; i<k; i++) {
+        if(egshig[i] > max) {
+            max = egshig[i];
+        }
+    }
+    for(i=0; i<k; i++) {
+        if(max == egshig[i]) {
+            printf("%d dugaar ugend hamgiin olon egshig baina.\n", i+1);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+main() {
+    char ug[20], text[200];
+    int i, j, n, l=0;
+    printf("Oguulberee oruulna uu:");
+    fgets(text, 200, stdin);
+    text[strlen(text) - 1] = '\0';
+    printf("Haih ugee oruul:");
+    fgets(ug, 20, stdin);
+    ug[strlen(ug) - 1] = '\0';
+    for(i=0; i<strlen(text)-strlen(ug)+1; i++) {
+        n=0;
+        for(j=0; j<strlen(ug); j++) {
+            if(text[i+j] == ug[j]) {
+                n++;
+            }
+        }
+        if(n == strlen(ug)) {
+            printf("%d\n", i+1);
+            j++;
+        }
+    }
+    if(j != 0) {
+        return -1;
+    }
+}
