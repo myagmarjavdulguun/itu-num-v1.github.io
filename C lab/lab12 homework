@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <string.h>
+
+void print(char a[][10], int n);
+
+main() {
+    int n, i;
+    printf("Ugiin toog oruul:");
+    scanf("%d", &n);
+    char a[n][10];
+    for(i=0; i<n; i++) {
+        printf("%d dugaar ugiig oruul: ", i+1);
+        scanf("%s", a[i]);
+    }
+    print(a, n);
+    sort(a, n);
+    print(a, n);
+    char *k, s[10];
+    k = &s;
+    printf("Haih ugee oruul:");
+    scanf("%s", k);
+    printf("%d dah ug.", search(a, s, n)+1);
+}
+
+void print(char a[][10], int n) {
+    int i;
+    for(i=0; i<n; i++) {
+        printf("%s ", a[i]);
+    }
+    printf("\n");
+}
+
+void sort(char a[][10], int size) {
+    int i, j;
+    char b[10];
+    for(i=0; i<size; i++) {
+        for(j=0; j<size-1; j++) {
+            if(a[j][0] > a[j+1][0]) {
+                strcpy(b, a[j]);
+                strcpy(a[j], a[j+1]);
+                strcpy(a[j+1], b);
+            }
+        }
+    }
+}
+
+int search(char a[][10], char k[10], int n) {
+    int i;
+    for(i=0; i<n; i++) {
+        if(strcmp(a[i], k) == 0) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
