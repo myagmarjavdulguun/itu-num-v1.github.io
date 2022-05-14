@@ -1,0 +1,134 @@
+#include <stdio.h>
+
+void read(int *begin, int *end);
+void print(int *begin, int *end);
+
+main() {
+    int a[50], n;
+    printf("Elemnetiin toog oruul: ");
+    scanf("%d", &n);
+    read(&a[0], &a[n-1]);
+    print(&a[0], &a[n-1]);
+}
+
+void read(int *begin, int *end) {
+    int *i;
+    for(i=begin; i<=end; i++) {
+        scanf("%d", i);
+    }
+}
+
+void print(int *begin, int *end) {
+    int *i;
+    for(i=begin; i<=end; i++) {
+        printf("%d ", *i);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+void read(int *p);
+
+main() {
+    int i, a[4];
+    read(&a[0]-2);
+    read(&a[1]-2);
+    read(&a[2]-2);
+    read(&a[3]-2);
+    read(&a[4]-2);
+    printf("%d %d %d %d %d", a[0], a[1], a[2], a[3], a[4]);
+}
+
+void read(int *p) {
+    scanf("%d", p+2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int *find(int a[][100], int n, int m);
+
+main() {
+    int a[100][100], i, j, n, m, *p;
+    printf("Mor baganiin toog oruul:");
+    scanf("%d %d", &n, &m);
+    for(i=0; i<n; i++) {
+        for(j=0; j<m; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    p = find(a, n, m);
+    printf("\n");
+    for(j=0; j<m; j++) {
+        printf("%d ", *(p+j));
+    }
+}
+
+int *find(int a[][100], int n, int m) {
+    int b[n], max=0, i, j;
+    for(i=0; i<n; i++) {
+        b[i] = 0;
+        for(j=0; j<m; j++) {
+            if(a[i][j] % 2 == 0) {
+                b[i]++;
+            }
+        }
+    }
+    for(i=0; i<n; i++) {
+        if(b[i] > max) {
+            max = b[i];
+        }
+    }
+    for(i=0; i<n; i++) {
+        if(b[i] == max) {
+            return &a[i][0];
+        }
+    }
+}
+
+
+
+
+
+
+
+
