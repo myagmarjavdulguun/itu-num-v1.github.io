@@ -1,0 +1,200 @@
+#include <iostream>
+using namespace std;
+
+double ihiig_oloh(int a, int b, int c);
+
+main() {
+    double a,b,c;
+    cin >> a >> b >> c;
+    cout << ihiig_oloh(a, b, c) << " hamgiin ih ni.";
+}
+
+double ihiig_oloh(int a, int b, int c) {
+    double k = a>b? a:b;
+    double l = k>c? k:c;
+    return l;
+}
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int ih(double* a, int n);
+int baga(double* a, int n);
+
+main() {
+    int n;
+    cin >> n;
+    double a[n];
+    for(int i=0; i<n; i++) {
+        cin >> a[i];
+    }
+    cout << "Hamgiin ih ni " << ih(a, n) << endl;
+    cout << "Hamgiin baga ni " << baga(a, n) << endl;
+}
+
+int ih(double* a, int n) {
+    int max = *(a);
+    for(int i=0; i<n; i++) {
+        if(*(a+i)>max)
+            max = *(a+i);
+    }
+    return max;
+}
+
+int baga(double* a, int n) {
+    int min = *(a);
+    for(int i=0; i<n; i++) {
+        if(*(a+i)<min)
+            min = *(a+i);
+    }
+    return min;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int tegsh_tsifr(int* a, int n);
+
+main() {
+    int n;
+    cin >> n;
+    int a[n];
+    for(int i=0; i<n; i++) {
+        cin >> a[i];
+    }
+    cout << tegsh_tsifr(a, n) << " shirheg tegsh too baina.\n";
+}
+
+int tegsh_tsifr(int* a, int n) {
+    int s=0;
+    for(int i=0; i<n; i++) {
+        if(*(a+i)%2==0) {
+            s++;
+        }
+    }
+    return s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+double sondgoi_elemetiin_dundaj(int* a, int n);
+
+main() {
+    int n, i;
+    cin >> n;
+    int a[n];
+    for(i=0; i<n; i++) {
+        cin >> a[i];
+    }
+    cout << "Sondgoi toonuudiin dundaj ni " << sondgoi_elemetiin_dundaj(a, n) << endl;
+}
+
+double sondgoi_elemetiin_dundaj(int* a, int n) {
+    double niilber=0, too=0;
+    for(int i=0; i<n; i++) {
+        if(*(a+i) % 2 == 1) {
+            niilber += *(a+i);
+            too++;
+        }
+    }
+    return niilber/too;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int orongiin_too(int* t, int a);
+
+main() {
+    int a, t[15];
+    cin >> a;
+    int n = orongiin_too(t, a);
+    cout << a << " toonii orongiin too " << n << ", tsifruud ni ";
+    for(int i=0; i<n; i++) {
+        cout << t[i] << " ";
+    }
+}
+
+int orongiin_too(int* t, int a) {
+    int n=0, i=a;
+    while(i>0) {
+        n++;
+        i/=10;
+    }
+    for(i=0; i<n; i++) {
+        *(t+n-i-1) = a%10;
+        a/=10;
+    }
+    return n;
+}
