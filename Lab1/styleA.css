@@ -37,10 +37,10 @@ body {
     align-items: center;
 }
 .boxA {
-    margin-top: 1px;
+    margin-top: 2px;
 }
 .boxF {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 button {
     position: absolute;
