@@ -1,0 +1,60 @@
+CREATE TABLE Branch (
+	bno varchar(5),
+	street varchar(30),
+	area varchar(30),
+	city varchar(30),
+	pcode varchar(30),
+	tel_no varchar(30),
+	fax_no varchar(30),
+);
+
+CREATE TABLE Staff (
+	sno varchar(5),
+	fname varchar(20),
+	lname varchar(20),
+	address varchar(50),
+	tel_no varchar(30),
+	position varchar(20),
+	sex varchar(1),
+	dob date,
+	salary int,
+	nin varchar(20),
+	bno varchar(5),
+);
+
+CREATE TABLE Property_for_rent (
+	pno varchar(5),
+	street varchar(20),
+	area varchar(20),
+	city varchar(20),
+	pcode varchar(10),
+	type varchar(10),
+	rooms smallint,
+	rent int,
+	ono varchar(5),
+	sno varchar(5),
+	bno varchar(5),
+);
+
+CREATE TABLE Viewing (
+	rno varchar(5),
+	pno varchar(5),
+	date date,
+	comment varchar(50),
+);
+
+insert into Branch
+values ('b5', '22 deer rd', 'Sidcup', 'London', 'SW1 4EH', '0171-886-1212', '0171-886-1214'),
+	   ('b7', '16 Argilly St', 'Dyce', 'Aberdeen', 'AB2 3Su', '01224-67125', '01224-67111'),
+	   ('b3', '163 Main St', 'Partick', 'Classgow', 'G11 9Qx', '0141-339-2178', '0141-339-4439'),
+	   ('b4', '32 Mains RD', 'leight', 'Bristol', 'BS99 1NZ', '0117-916-1170', '0117-776-1114'),
+	   ('b2', '56Clover Dr', NULL, 'London', 'NW10 6EU', '0181-963', '0181-453-7992');
+
+insert into Staff
+values ('sl21', 'John', 'white', '19Taylor St, Crandford, London', '0171-884-5112', 'Manager', 'M', date '1945-01-10', 30000, 'WK442011B', 'b5'),
+	   ('sG37', 'Ann', 'Beech', '81 George St, Glasgow PA1 2Jr', '0141-848-3345', 'Snr Asst', 'F', date '1960-11-10', 12000, 'Wl432514C', 'b3'),
+	   ('sG14', 'David', 'Ford', '63 AshbySt,Partick, Glasgow G11', '0141-339-2177', 'Deputy', 'M', date '1958-03-24', 18000, 'Wl220658D', 'b3'),
+	   ('SA9', 'Mary', 'Howe', '2 Elm Pl, Aberdeen AB2 su', NULL, 'Assistant', 'F', date '1970-02-19', 9000, 'WM532187D', 'b7'),
+	   ('sg5', 'Susan', 'Brand', '5Gt Western Rd, Glasgow G12', '011-334-2001', 'Manager', 'F', date '1940-06-03', 24000, 'Wk588932E', 'b3'),
+	   ('sl41', 'Julie', 'lee', '28 Malvern St, Kilburn NW2', NULL, 'Assitant', 'F', date '1965-06-13', 9000, 'WA290573K', 'b5');
+
