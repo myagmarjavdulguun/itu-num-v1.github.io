@@ -1,0 +1,137 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: arial;
+	color: black;
+}
+#container {
+	height: 100vh;
+	background-color: skyblue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#calendar {
+	width: 400px;
+	height: 360px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: white;
+	border-radius: 10px;
+}
+#calendar div {
+}
+#sumz {
+	height: 50px;
+	width: 10%;
+	text-align: center;
+	font-size: 40px;
+	cursor: pointer;
+}
+#sumz:hover {
+	color: white;
+}
+#sumb {
+	height: 50px;
+	width: 10%;
+	text-align: center;
+	font-size: 40px;
+	cursor: pointer;
+}
+#sumb:hover {
+	color: white;
+}
+#husnegt {
+	height: 100%;
+	width: 80%;
+}
+#header {
+	height: 20%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+#header p {
+	width: 100px;
+	height: 100%;
+}
+#on {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+}
+#on:hover {
+	color: white;
+}
+#sar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+}
+#week {
+	height: 10%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+#jiliinhusnegt {
+	width: 300px;
+	height: 200px;
+	display: flex;
+	flex-wrap: wrap;
+	display: none;
+	background-color: white;
+	border-radius: 20px;
+}
+.oniisum {
+	width: 70px;
+	height: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 40px;
+}
+.oniisum:hover {
+	color: white;
+}
+#div5 {
+	width: 160px;
+	height: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 50px;
+}
+#div7 {
+	width: 100%;
+	height: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+}
+#div7:hover {
+	color: white;
+}
+#odruud {
+	height: 70%;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+#odruud div {
+	width: 43.7px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#odriinnud1 {
+}
