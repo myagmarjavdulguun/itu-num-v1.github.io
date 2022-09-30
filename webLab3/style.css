@@ -1,0 +1,100 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Noto Sans, sans-serif;
+}
+input {
+	border-radius: 20px;
+}
+#container {
+	width: 100vw;
+	height: 100vh;
+	background-image: url(bg.jpg);
+	background-repeat: repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#talbar {
+	width: 80vw;
+	height: 80vh;
+	background-color: grey;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.useg {
+	width: 60px;
+	height: 60px;
+	margin: 20px;
+	font-size: 40px;
+	text-align: center;
+	background-color: white;
+	content
+}
+#yllaa {
+	position: absolute;
+	display: flex;
+	align-self: center;
+	padding: 90px;
+	font-size: 100px;
+	background-color: #fdf6e6;
+	border-top-right-radius: 80px;
+	border-bottom-left-radius: 80px;
+	color: #5155dd;
+}
+#ylagdlaa {
+	position: absolute;
+	display: flex;
+	align-self: center;
+	padding: 90px;
+	font-size: 100px;
+	background-color: #fdf6e6;
+	color: #ed6f2f;
+	border-bottom-right-radius: 80px;
+	border-top-left-radius: 80px;
+}
+#dahinehleh {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	padding: 30px;
+	font-size: 40px;
+	background-color: #ffe5da;
+	border-radius: 40px;
+	color: black;
+}
+#dahinehleh:hover {
+	background-color: #e85354;
+}
+#aminas {
+	position: absolute;
+	right: 10vw;
+	top: 10vh;
+	font-size: 40px;
+	padding: 10px;
+	background-color: #f36c34;
+	border-bottom-left-radius: 30px;
+	color: #2f2d2e;
+}
+#onoo {
+	position: absolute;
+	left: 10vw;
+	top: 10vh;
+	padding: 10px;
+	font-size: 40px;
+	background-color: #f36c34;
+	border-bottom-right-radius: 30px;
+	color: #2f2d2e;
+}
+#sedev {
+	position: absolute;
+	bottom: 10vh;
+	width: 80vw;
+	left: 10vw;
+	font-size: 40px;
+	text-align: center;
+	background-color: #f36c34;
+	color: #2f2d2e;
+}
