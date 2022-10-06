@@ -146,7 +146,7 @@ function ehleh() {
 	location.reload();
 }
 function ylsaneseh() {
-	if (taasanug == 1) {
+	if (taasanug == 5) {
 		const myTimeout = setTimeout(function() {yllaa.style.display = 'block'; 
 												 dahinehleh.style.display = 'block';
 												 talbar.style.display = 'none';
