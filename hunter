@@ -1,7 +1,7 @@
 CREATE DATABASE DREAM_HOME;
 
-USE DREAM_HOME 
-GO
+USE DREAM_HOME; 
+GO;
 
 CREATE TABLE Branch (
 	BranchNo varchar(3) not null,
@@ -50,12 +50,12 @@ alter table Staff
 add foreign key (BranchNo) references Branch(BranchNo);
 
 insert into Staff (StaffNo, FirstName, LastName, Address, TelephoneNo, Position, Sex, DateOfBirth, Salary, NationalInsuranceNo, BranchNo)
-values ('sl21', 'John', 'white', '19Taylor St, Crandford, London', '0171-884-5112', 'Manager', 'M', '1945-01-10', 30000, 'WK442011B', 'b5'),
-	   ('sG37', 'Ann', 'Beech', '81 George St, Glasgow PA1 2Jr', '0141-848-3345', 'Snr Asst', 'F', '1960-11-10', 12000, 'Wl432514C', 'b3'),
-	   ('sG14', 'David', 'Ford', '63 AshbySt,Partick, Glasgow G11', '0141-339-2177', 'Deputy', 'M', '1958-03-24', 18000, 'Wl220658D', 'b3'),
-	   ('SA9', 'Mary', 'Howe', '2 Elm Pl, Aberdeen AB2 su', NULL, 'Assistant', 'F', '1970-02-19', 9000, 'WM532187D', 'b7'),
-	   ('sg5', 'Susan', 'Brand', '5Gt Western Rd, Glasgow G12', '011-334-2001', 'Manager', 'F', '1940-06-03', 24000, 'Wk588932E', 'b3'),
-	   ('sl41', 'Julie', 'lee', '28 Malvern St, Kilburn NW2', NULL, 'Assitant', 'F', '1965-06-13', 9000, 'WA290573K', 'b5');
+values ('SL21', 'John', 'white', '19Taylor St, Crandford, London', '0171-884-5112', 'Manager', 'M', '1945-01-10', 30000, 'WK442011B', 'B5'),
+	   ('SG37', 'Ann', 'Beech', '81 George St, Glasgow PA1 2Jr', '0141-848-3345', 'Snr Asst', 'F', '1960-11-10', 12000, 'Wl432514C', 'B3'),
+	   ('SG14', 'David', 'Ford', '63 AshbySt,Partick, Glasgow G11', '0141-339-2177', 'Deputy', 'M', '1958-03-24', 18000, 'Wl220658D', 'B3'),
+	   ('SA9', 'Mary', 'Howe', '2 Elm Pl, Aberdeen AB2 su', NULL, 'Assistant', 'F', '1970-02-19', 9000, 'WM532187D', 'B7'),
+	   ('SG5', 'Susan', 'Brand', '5Gt Western Rd, Glasgow G12', '011-334-2001', 'Manager', 'F', '1940-06-03', 24000, 'Wk588932E', 'B3'),
+	   ('SL41', 'Julie', 'lee', '28 Malvern St, Kilburn NW2', NULL, 'Assitant', 'F', '1965-06-13', 9000, 'WA290573K', 'B5');
 
 CREATE TABLE PropertyForRent (
 	PropertyNo varchar(5) not null,
