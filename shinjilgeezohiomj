@@ -1,0 +1,102 @@
+package lab1;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Car c = new Car();
+		c.print();
+		c.isNew();
+		c.setModel("BMW");
+		c.setColor("black");
+		c.setYear(4);
+		c.print();
+		c.isNew();
+		Car b = new Car(c.getModel(), c.getColor(), 15);
+		b.print();
+		b.isNew();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+package lab1;
+
+public class Car {
+	private String model;
+	private String color;
+	private int year;
+	
+	public Car() {
+		model = "Приүс";
+		color = "саарал";
+		year = 0;
+	}
+	public Car(String a, String b, int c) {
+		model = a;
+		color = b;
+		year = c;
+	}
+	public void setModel(String a) {
+		model = a;
+	}
+	public void setColor(String a) {
+		color = a;
+	}
+	public void setYear(int a) {
+		year = a;
+	}
+	public String getModel() {
+		return model;
+	}
+	public String getColor() {
+		return color;
+	}
+	public int gerYear() {
+		return year;
+	}
+	public void print() {
+		System.out.println(model+" загварын машин нь "+color+" өнгөтэй ба "+year+" жил унасан.");
+	}
+	public void isNew() {
+		if(year >= 10) {
+			System.out.println("Хуучин машин.");
+		} else if(year < 10 && year > 0) {
+			System.out.println("Унаж байсан машин.");
+		} else if(year == 0) {
+			System.out.println("Шинэ машин.");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
