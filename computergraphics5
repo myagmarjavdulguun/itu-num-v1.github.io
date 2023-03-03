@@ -1,0 +1,122 @@
+#ifdef __APPLE_CC__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+#include <iostream>
+#include <windows.h>
+
+// Set this to true to animate.
+static bool spinning = true;
+
+// This is the number of frames per second to render.
+static const int FPS = 300;
+
+// This global variable keeps track of the current orientation of the square.
+// It is better to maintain the "state" of the animation globally rather
+// than trying to successively accumulate transformations.  Over a period of
+// time the approach of accumulating transformation matrices generally
+// degrades due to rounding errors.
+static GLfloat currentAngleOfRotation = 1.0;
+static GLfloat spdx = 1.0;
+static GLfloat spdy = 1.0;
+static char dirx = 'r';
+static char diry = 'u';
+static float x = 10;
+static float y = 10;
+static float mousey=300;
+static int point = 0;
+
+// Handles the window reshape event by first ensuring that the viewport fills
+// the entire drawing surface.  Then we use a simple orthographic projection
+// with a logical coordinate system ranging from -50..50 in the smaller of
+// the width or height, and scale the larger dimension to make the whole
+// window isotropic.
+void reshape(GLint w, GLint h) {
+  glViewport(0, 0, w, h);
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+
+    glOrtho(0.0, 640.0, 0.0, 480.0, -1.0, 1.0);
+
+}
+
+// Handles the display callback as follows: first clears the window, then draws
+// a 50 x 50 rectangle centered at the origin and rotated the correct number
+// of degrees around the vector <0,0,1>.  This function ends with a
+// 'glutSwapBuffers' call because when the display mode is double buffered,
+// drawing takes place on the back buffer; we have to call glutSwapBuffers()
+// to show what we have drawn.
+void display() {
+  glClear(GL_COLOR_BUFFER_BIT);
+  glMatrixMode(GL_MODELVIEW);
+  glLoadIdentity();
+  glRectf(x, y, x+40, y+40);
+  glRectf(50, mousey, 80, mousey+100);
+  glFlush();
+  glutSwapBuffers();
+}
+
+// Handles the timer by incrementing the angle of rotation and requesting the
+// window to display again, provided the program is in the spinning state.
+// Since the timer function is only called once, it sets the same function to
+// be called again.
+
+
+// Handles mouse events as follows: when the left button is pressed, generate
+// new animation frames while the application is idle; when the right button
+// is pressed, remove any idle-time callbacks, thus stopping the animation.
+void mouse(int button, int state, int x, int y) {
+  if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+    spinning = true;
+  } else if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
+    spinning = false;
+  }
+}
+
+void passmot(int x, int y) {
+    mousey = 480 - y - 50;
+}
+
+void timer(int v) {
+  if (spinning) {
+    if(dirx == 'r') x+=spdx;
+    if(dirx == 'l') x-=spdx;
+
+    if(x+40==640) dirx = 'l';
+    if(x==0 || (x==80 && y+40>mousey && y<mousey+100)) {
+            dirx = 'r';
+            Beep(750, 100);
+            point++;
+            std::cout << point << std::endl;
+    }
+
+    if(diry == 'u') y+=spdy;
+    if(diry == 'd') y-=spdy;
+
+    if(y+40==480) diry = 'd';
+    if(y<0) diry = 'u';
+
+    glutPostRedisplay();
+    glutPassiveMotionFunc(passmot);
+  }
+  glutTimerFunc(1000/FPS, timer, v);
+}
+
+
+// Initializes GLUT, the display mode, and main window; registers callbacks;
+// enters the main event loop.
+int main(int argc, char** argv) {
+
+  glutInit(&argc, argv);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+  glutInitWindowPosition(80, 80);
+  glutInitWindowSize(640, 480);
+  glutCreateWindow("Spinning Square");
+  glutReshapeFunc(reshape);
+  glutDisplayFunc(display);
+  glutTimerFunc(100, timer, 0);
+  glutMouseFunc(mouse);
+  glutMainLoop();
+  glutPassiveMotionFunc(passmot);
+}
