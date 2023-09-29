@@ -1,0 +1,62 @@
+const body = document.getElementsByTagName('body');
+
+const div1 = document.createElement('div');
+div1.id = 'div1';
+const div2 = document.createElement('div');
+div2.id = 'div2';
+const div2_1 = document.createElement('div');
+div2_1.id = 'div2-1';
+const div3 = document.createElement('div');
+div3.id = 'div3';
+const div3_1 = document.createElement('div');
+div3_1.id = 'div3-1';
+
+div1.innerHTML = '<p>div1</p>';
+div2.innerHTML = '<p>div2</p>';
+div2_1.innerHTML = '<p>div2-1</p>';
+div3.innerHTML = '<p>div3</p>';
+div3_1.innerHTML = '<p>div3-1</p>';
+
+div2.appendChild(div2_1);
+div3.appendChild(div3_1);
+
+body[0].appendChild(div1);
+body[0].appendChild(div2);
+body[0].appendChild(div3);
+
+div1.setAttribute('style', 'width: 50px; height: 200px; background-color: #ffe0e0;');
+
+/*div1.style.width = '50px';
+div1.style.height = '200px';
+div1.style.backgroundColor = '#ffe0e0';*/
+
+div2.setAttribute('style', 'width: 300px; height: 200px; position: relative; background-color: #d0e0ff;')
+
+/*div2.style.width = '300px';
+div2.style.height = '200px';
+div2.style.position = 'relative';
+div2.style.backgroundColor = '#d0e0ff';*/
+
+div2_1.setAttribute('style', 'width: 150px; height: 80px; position: absolute; top: 50px; left: 100px; background-color: #d0e0ff');
+
+/*div2_1.style.width = '150px';
+div2_1.style.height = '80px';
+div2_1.style.position = 'absolute';
+div2_1.style.top = '50px';
+div2_1.style.left = '100px';
+div2_1.style.backgroundColor = '#d0e0ff';*/
+
+div3.setAttribute('style', 'width: 300px; height: 200px; background-color: #ffffe0;');
+
+/*div3.style.width = '300px';
+div3.style.height = '200px';
+div3.style.backgroundColor = '#ffffe0';*/
+
+div3_1.setAttribute('style', 'width: 150px; height: 80px; position: absolute; top: 50px; left: 100px; background-color: #ffffe0');
+
+/*div3_1.style.width = '150px';
+div3_1.style.height = '80px';
+div3_1.style.position = 'absolute';
+div3_1.style.top = '50px';
+div3_1.style.left = '100px';
+div3_1.style.backgroundColor = '#ffffe0';*/
