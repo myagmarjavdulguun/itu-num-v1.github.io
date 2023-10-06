@@ -35,6 +35,7 @@ guessedWordBar.id = 'guessedWordBar';
 
 const timerBar = document.createElement('div');
 timerBar.id = 'timerBar';
+timerBar.innerHTML = 0;
 
 const wordToGuess = document.createElement('div');
 wordToGuess.id = 'wordToGuess';
@@ -57,10 +58,16 @@ overDiv.appendChild(returnButton2);
 overDiv.appendChild(playAgainButton);
 
 
+var numberOfLetters;
+var numberOfGuessedLetters = 0;
+var numberOfGuessedWords = 0;
+
 playButton.addEventListener('click', () => {
     startDiv.style.display = 'none';
     gameDiv.style.display = 'flex';
-    showWordToGuess();
+    setInterval(() => {
+        timerBar.innerHTML = parseInt(timerBar.innerHTML) + 1;
+    }, 1000);
 });
 
 returnButton.addEventListener('click', () => {
@@ -68,61 +75,94 @@ returnButton.addEventListener('click', () => {
     gameDiv.style.display = 'none';
 });
 
-var words = ['нэг',
-             'хоёр', 
-             'гурав', 
-            'дөрөв'];
+var words = ['mouse', 'cow', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'sheep', 'monkey', 'dog', 'pig'];
 
-function showWordToGuess() {
-    var randWord = words[Math.floor(Math.random() * words.length)];
-    wordToGuess.innerHTML = randWord;
-    var numberOfGuessedLetters = 0;
-    var round = 0;
+let currentWord = '';
+let healthPoints = 5;
 
-    for (var i = 0; i < randWord.length; i++) {
+function chooseRandomWord() {
+    return words[Math.floor(Math.random() * words.length)];
+}
+
+function startNewRound() {
+    currentWord = chooseRandomWord();
+    healthPoints = 5;
+    
+    displayMysteryWord();
+    updateHealthDisplay();
+}
+
+// Function to display the mystery word as input fields
+function displayMysteryWord() {
+    wordToGuess.innerHTML = '';
+    
+    for (var i = 0; i < currentWord.length; i++) {
         const input = document.createElement('input');
-        input.id = i;
+        input.type = 'text';
         input.maxLength = 1;
+        input.id = i;
+        input.addEventListener('input', handleInput);
         wordToGuess.appendChild(input);
-        input.addEventListener('input', () => {
-            if (randWord[input.id] === input.value) {
-                console.log('right letter');
-                input.readOnly = 'true';
-                input.style.backgroundColor = 'green';
-                numberOfGuessedLetters++;
-            } else {
-                input.style.backgroundColor = 'red';
-                input.blur();
-
-                const myTimeout = setTimeout(() => {
-                    input.style.backgroundColor = '';
-                    input.focus();
-                    input.value = '';
-                }, 1000);
-            }
-            if (numberOfGuessedLetters === randWord.length) {
-                showWordToGuess();
-                round++;
-            }
-            if (round === 6) {
-                gameDiv.style.display = 'none';
-                overDiv.style.display = 'flex';
-            }
-            healthBar.innerHTML = numberOfGuessedLetters;
-        });
     }
-
-    var arr = generateRandonNumberArray((randWord.length - 1) / 2, randWord.length);
+    var arr = generateRandonNumberArray((currentWord.length - 1) / 2, currentWord.length);
     for (var i = 0; i < arr.length; i++) {
         var inputField = document.getElementById(arr[i]);
-        inputField.value = randWord[arr[i]];
+        inputField.value = currentWord[arr[i]];
         inputField.readOnly = 'true';
         inputField.style.backgroundColor = 'green';
         numberOfGuessedLetters++;
     }
-    
-    healthBar.innerHTML = numberOfGuessedLetters;
 }
+
+// Function to handle user input in input fields
+function handleInput(event) {
+    const input = event.target;
+    const index = Array.from(input.parentNode.children).indexOf(input);
+    const letter = currentWord[index];
+    
+    if (input.value === letter) {
+        // Correct guess
+        input.style.backgroundColor = 'green';
+        input.readOnly = true;
+        numberOfGuessedLetters++;
+
+        // Check if the entire word is guessed
+        if (numberOfGuessedLetters === currentWord.length) {
+            numberOfGuessedLetters = 0;
+            numberOfGuessedWords++;
+            console.log(numberOfGuessedWords);
+            startNewRound();
+        }
+    } else {
+        // Incorrect guess
+        input.style.backgroundColor = 'red';
+        input.value = '';
+        healthPoints--;
+        const myTimeout = setTimeout(() => {
+            input.style.backgroundColor = '';
+            input.focus();
+            input.value = '';
+        }, 1000);
+
+
+
+        updateHealthDisplay();
+
+        if (healthPoints === 0) {
+            // Player loses the round
+            // Display a lose message or end the game
+            // You can implement this part
+        }
+    }
+}
+
+// Function to update and display health points
+function updateHealthDisplay() {
+    healthBar.innerHTML = healthPoints;
+}
+
+// Start the game
+startNewRound();
 
 function generateRandonNumberArray(n, m) {
     if (n > m) {
