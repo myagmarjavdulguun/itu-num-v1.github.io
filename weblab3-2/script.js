@@ -77,6 +77,7 @@ let isThereWord = false;
 let randWord;
 let numberOfGuessedLetters = 0;
 let numberOfGuessedWords = 0;
+let guessedWords = [];
 let s = 0;
 let d = 0;
 let m = 0;
@@ -91,6 +92,7 @@ playButton.addEventListener('click', () => {
     m = 0;
     numberOfGuessedWords = 0;
     healthPoints = 5;
+    guessedWords = [];
     healthBar.innerHTML = "";
     for (let i = 0; i < 5; i++) {
         const heart = document.createElement("img");
@@ -181,13 +183,14 @@ function play() {
         }
         if (randWord.length === numberOfGuessedLetters) {
             numberOfGuessedWords++;
+            guessedWords.push(randWord);
             isThereWord = false;
         }
         if (healthPoints === 0) {
             overDiv.style.display = "flex";
             gameDiv.style.display = "none";
 
-            resultBox.innerHTML = "<h1>Game over!</h1><br>You have guessed " + numberOfGuessedWords + " words correctly<br>in " + m + " minutes " + s + " seconds.<br><br>";
+            resultBox.innerHTML = "<h1>Game over!</h1><br>You have guessed these " + numberOfGuessedWords + " words correctly:<br>" + guessedWords + "<br>in " + m + " minutes " + s + " seconds.<br><br>";
             clearInterval(myInterval);
         }
 }
