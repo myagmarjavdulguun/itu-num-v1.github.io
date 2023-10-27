@@ -22,7 +22,7 @@ function Home() {
 
     return (
         <div>
-            {loggedUser ? <div>
+            {Cookies.get('loggedUser') ? <div>
                 <h1>Home</h1>
                 {<p>Welcome to the home page, {name}!</p>}
                 <button onClick={handleLogout}>Logout</button>
